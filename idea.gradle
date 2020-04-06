@@ -19,6 +19,7 @@ idea {
 // --- changes to idea plugin ---
 
 
+
 def removeIdeaJdkDependencies(def module) {
     module.dependencies.removeAll(module.dependencies.findAll {it.classes.url[0].contains(ideaInstallationPath)})
 }

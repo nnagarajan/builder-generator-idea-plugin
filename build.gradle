@@ -1,11 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven {
+            url 'https://dl.bintray.com/jetbrains/intellij-plugin-service'
+        }
+
+    }
+    dependencies {
+        classpath "org.jetbrains.intellij.plugins:gradle-intellij-plugin:0.5.0-SNAPSHOT"
+    }
+}
+
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.18'
+}
+
+apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply from: 'idea.gradle'
 apply plugin: 'checkstyle'
 
 // --- properties ---
-ext.ideaInstallationPath = 'C:/Users/Michal/AppData/Local/JetBrains/Toolbox/apps/IDEA-C/ch-0/171.4249.39'
-ext.ideaJdk = 'IntelliJ IDEA Community Edition IC-171.4249.39'
 sourceCompatibility = 1.8
 // --- properties ---
 
@@ -18,11 +39,16 @@ repositories {
     mavenLocal()
 }
 
+
 dependencies {
-    compile fileTree(dir: ideaInstallationPath + '/lib', include: '*.jar')
-    testCompile 'org.mockito:mockito-core:2.0.3-beta'
+    testCompile 'org.mockito:mockito-core:3.3.3'
     testCompile 'org.assertj:assertj-core:1.7.1'
     testCompile 'org.springframework:spring-test:4.0.0.RELEASE'
+}
+
+intellij {
+    plugins 'java'
+    version '201.6668-EAP-CANDIDATE-SNAPSHOT'
 }
 
 jar {
@@ -34,6 +60,6 @@ jar {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.0'
+    gradleVersion = '4.0'
 }
 
