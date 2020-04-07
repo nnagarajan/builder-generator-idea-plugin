@@ -14,13 +14,14 @@ buildscript {
     }
 }
 
-group = 'builder-generator'
 
 plugins {
     id 'java'
     id 'org.jetbrains.intellij' version '0.4.18'
     id 'maven-publish'
 }
+
+group = 'builder-generator'
 
 
 //mvn deploy -Dregistry=https://maven.pkg.github.com/nnagarajan -Dtoken=GH_TOKEN
