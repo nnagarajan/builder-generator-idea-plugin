@@ -22,7 +22,7 @@ plugins {
 }
 
 group = 'builder-generator'
-
+version =  '1.0.0'
 
 //mvn deploy -Dregistry=https://maven.pkg.github.com/nnagarajan -Dtoken=GH_TOKEN
 
