@@ -35,6 +35,6 @@ jobs:
           path: build/libs
       - name: Publish to the Maven Central Repository
         run: gradle publish
-          env:
-            GITHUB_USERNAME: nnagarajan
-            GITHUB_TOKEN: ${{ secrets.SECRET_WORKFLOW }}
+        env:
+          GITHUB_USERNAME: nnagarajan
+          GITHUB_TOKEN: ${{ secrets.SECRET_WORKFLOW }}
